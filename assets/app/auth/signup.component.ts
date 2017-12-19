@@ -2,7 +2,7 @@ import { Component,OnInit } from "@angular/core";
 import { FormGroup, Validators,FormControl } from "@angular/forms";
 import { AuthService } from "./auth.service";
 import { User } from "./user.model";
-
+import { Router } from "@angular/router";
 
 @Component({
     selector:'app-signup',
@@ -12,7 +12,7 @@ export class SignupComponent implements OnInit {
 
     myForm : FormGroup;
    
-    constructor(private authService:AuthService) {
+    constructor(private authService:AuthService,private router : Router) {
 
     }
 
@@ -24,7 +24,18 @@ export class SignupComponent implements OnInit {
             this.myForm.value.lastName
         );
         this.authService.signUp(user).subscribe(
-            data => console.log(data),
+            data => { 
+                console.log(data);               
+                this.authService.signIn(user).subscribe(
+                   data => {
+                      localStorage.setItem('token', data.token);
+                      localStorage.setItem('userId', data.userId);
+                      this.router.navigateByUrl('/') ;
+                   },
+                   error => console.error(error)
+               );
+            
+            },
             error => console.error(error)
         );
         this.myForm.reset();
