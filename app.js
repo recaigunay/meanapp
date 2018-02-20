@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var appRoutes = require('./routes/app');
 var messageRoutes = require('./routes/message');
 var userRoutes = require('./routes/user');
+var categoryRoutes = require('./routes/category');
 var mongoose = require("mongoose");
 
 // ES6 promises
@@ -53,6 +54,7 @@ app.use(function (req, res, next) {
 
 app.use('/message', messageRoutes);
 app.use('/user', userRoutes);
+app.use('/category', categoryRoutes);
 app.use('/', appRoutes);
 
 

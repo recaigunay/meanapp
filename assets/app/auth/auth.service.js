@@ -5,7 +5,6 @@ import 'rxjs/Rx';
 import { Observable } from 'rxjs';
 import { ErrorService } from '../errors/error.service';
 var AuthService = /** @class */ (function () {
-    //serverUrl : string = "http://127.0.0.1:3000"; 
     function AuthService(http, errorService) {
         this.http = http;
         this.errorService = errorService;

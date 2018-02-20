@@ -1,7 +1,45 @@
 <div class="container">
- <app-header></app-header> 
- <hr>
- <router-outlet></router-outlet>
+    <div class="ui pointing menu">
+        
+        <a class="item" routerLinkActive="active" [routerLink]="['/category']">
+            <i class="grid layout icon"></i> Products
+        </a>
+        <a class="item" routerLinkActive="active" [routerLink]="['/messages']">
+            <i class="mail icon"></i> Messages
+        </a>
+        <div class="ui input">
+            <input type="text" placeholder="Search products...">
+        </div>
+      
+        <div class="right item">
+                <div class="ui simple dropdown item" routerLinkActive="active" [routerLink]="['/auth']">
+                    <i class="user icon"></i> Authentication 
+                    <i class="dropdown icon"></i>             
+                    <div class="menu" *ngIf="IsLoggedIn()">                       
+                        <a class="item">
+                            <i class="edit icon"></i> Edit Profile</a>
+                        <a class="item">
+                            <i class="globe icon"></i> Choose Language</a>
+                        <a class="item">
+                            <i class="settings icon"></i> Account Settings</a>
+                         <a class="item" routerLinkActive="active" [routerLink]="['/auth/logout']">
+                            <i class="settings icon"></i> Logout</a>
+                    </div>        
+                    <div class="menu" *ngIf="!IsLoggedIn()">                       
+                            <a class="item" routerLinkActive="active" [routerLink]="['/auth/signin']">
+                                <i class="edit icon"></i> Login</a>
+                            <a class="item" routerLinkActive="active" [routerLink]="['/auth/signup']">
+                                <i class="globe icon"></i>Signup</a>                            
+                     </div>    
+                </div>
+        </div>
+    </div>
+
+    <div class="ui segment">
+        <router-outlet></router-outlet>
+    </div>
+
+
 </div>
 
 <app-error></app-error>

@@ -1,10 +1,12 @@
 import {Routes,RouterModule} from "@angular/router";
 import { MessagesComponent } from "./messages/messages.component";
 import { AuthenticationComponent } from "./auth/authentication.component";
+import { CategoryListComponent } from "./products/category-list.component";
 
 const APP_ROUTES : Routes = [
-{ path : '', redirectTo:'/messages', pathMatch:'full'},
+{ path : '', redirectTo:'/category', pathMatch:'full'},
 { path : 'messages', component : MessagesComponent },
+{ path : 'category', component : CategoryListComponent },
 { path : 'auth', component : AuthenticationComponent, loadChildren:'./auth/auth.module#AuthModule'}
 
 ];

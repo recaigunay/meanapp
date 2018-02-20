@@ -7,8 +7,8 @@ import { ErrorService } from '../errors/error.service';
 
 @Injectable()
 export class AuthService {
-    serverUrl : string = "https://meanapp-messenger.herokuapp.com";
-    //serverUrl : string = "http://127.0.0.1:3000"; 
+    //serverUrl : string = "https://meanapp-messenger.herokuapp.com";
+    serverUrl : string = "http://127.0.0.1:3000"; 
     constructor(private http : Http, private errorService: ErrorService) {
 
     }
