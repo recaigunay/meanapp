@@ -5,11 +5,19 @@ import 'rxjs/Rx';
 import { Observable } from 'rxjs';
 import { ErrorService } from '../errors/error.service';
 var AuthService = /** @class */ (function () {
-    //serverUrl : string = "http://127.0.0.1:3000"; 
     function AuthService(http, errorService) {
         this.http = http;
         this.errorService = errorService;
+        this.getUrl(this.hostname, this.prot);
     }
+    AuthService.prototype.getUrl = function (hostname, prot) {
+        this.index = hostname.toString().toUpperCase().indexOf('HEROKU');
+        if (this.index >= 0) {
+            this.serverUrl = "https://meanapp-messenger.herokuapp.com";
+        }
+        else
+            this.serverUrl = "http://127.0.0.1:3000";
+    };
     AuthService.prototype.signUp = function (user) {
         var _this = this;
         var body = JSON.stringify(user);

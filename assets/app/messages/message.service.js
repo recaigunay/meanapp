@@ -8,7 +8,16 @@ var MessageService = /** @class */ (function () {
     function MessageService(http, errorService) {
         this.http = http;
         this.errorService = errorService;
+        this.getUrl(this.hostname, this.prot);
     }
+    MessageService.prototype.getUrl = function (hostname, prot) {
+        this.index = hostname.toString().toUpperCase().indexOf('HEROKU');
+        if (this.index >= 0) {
+            this.serverUrl = "https://meanapp-messenger.herokuapp.com";
+        }
+        else
+            this.serverUrl = "http://127.0.0.1:3000";
+    };
     MessageService.prototype.addMessage = function (message) {
         var _this = this;
         //this.messages.push(message);

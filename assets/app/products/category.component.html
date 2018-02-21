@@ -2,7 +2,7 @@
  <div class="column">
     <div class="ui card">
         <div class="image">
-          <img src="{{category.CategoryImageUrl}}">
+          <img src="{{category.CategoryImageUrl}}" width="300px" height="250px">
         </div>
         <div class="content">
           <a class="header"  (click)="onEdit()">  {{category.CategoryName}}</a>
@@ -19,12 +19,6 @@
             </span>
             <i class="comment icon"></i>
             {{category.CategoryCommentCount}} comments
-          </div>
-          <div class="extra content">
-            <div class="ui large transparent left icon input">
-              <i class="heart outline icon"></i>
-              <input type="text" placeholder="Add Comment...">
-            </div>
-          </div>
+          </div>       
       </div>
   </div>

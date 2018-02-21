@@ -4,16 +4,28 @@ import { Http, Response, Headers } from "@angular/http";
 import 'rxjs/Rx';
 import { Observable } from "rxjs";
 import { ErrorService } from "../errors/error.service";
+import { hostname } from "os";
 
 @Injectable()
 export class ProductService {
     private categories: Category[] = [];
-    serverUrl: string = "https://meanapp-messenger.herokuapp.com"; //"http://127.0.0.1:3000"; //
-    //serverUrl : string = "http://127.0.0.1:3000"; 
+
+    hostname: string = window.location.hostname;
+    prot: string = window.location.protocol;
+    index: number = -1;
+    serverUrl: string = "";
+
     messageIsEdit = new EventEmitter<Category>();
 
-    constructor(private http: Http, private errorService:ErrorService) {
+    constructor(private http: Http, private errorService: ErrorService) {
+        this.getUrl(this.hostname, this.prot);
+    }
 
+    getUrl(hostname: string, prot: string) {
+        this.index = hostname.toString().toUpperCase().indexOf('HEROKU');
+        if (this.index >= 0) {
+            this.serverUrl = "https://meanapp-messenger.herokuapp.com";
+        } else this.serverUrl = "http://127.0.0.1:3000";
     }
 
     getCategories() {
@@ -22,18 +34,20 @@ export class ProductService {
                 const categories = response.json().obj;
                 let transformedMessages: Category[] = [];
                 for (let category of categories) {
-                    //console.log(message.content);
-                    transformedMessages.push(new Category(category.CategoryCode, category.CategoryName,category.CategoryImageUrl, category.CategoryDesc, category.CategoryCommentCount, category.CategoryLikeCount ));
+                    if ( category.CategoryImageUrl=="") {
+                        category.CategoryImageUrl="/images/noimage.png";
+                    }
+                    transformedMessages.push(new Category(category.CategoryCode, category.CategoryName, category.CategoryImageUrl, category.CategoryDesc, category.CategoryCommentCount, category.CategoryLikeCount));
                 }
                 this.categories = transformedMessages;
                 return transformedMessages;
             })
             .catch(
-                (error: Response) => { 
+                (error: Response) => {
                     this.errorService.handleError(error.json());
-                   return Observable.throw(error.json())
+                    return Observable.throw(error.json())
                 }
-                )
+            )
     }
 
 
