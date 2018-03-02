@@ -5,10 +5,12 @@ import 'rxjs/Rx';
 import { Observable } from "rxjs";
 import { ErrorService } from "../errors/error.service";
 import { hostname } from "os";
+import { Product } from "./product.model";
 
 @Injectable()
 export class ProductService {
     private categories: Category[] = [];
+    private products: Product[] = [];
 
     hostname: string = window.location.hostname;
     prot: string = window.location.protocol;
@@ -37,9 +39,32 @@ export class ProductService {
                     if ( category.CategoryImageUrl=="") {
                         category.CategoryImageUrl="/images/noimage.png";
                     }
-                    transformedMessages.push(new Category(category.CategoryCode, category.CategoryName, category.CategoryImageUrl, category.CategoryDesc, category.CategoryCommentCount, category.CategoryLikeCount));
+                    transformedMessages.push(new Category(category._id, category.CategoryCode, category.CategoryName, category.CategoryImageUrl, category.CategoryDesc, category.CategoryCommentCount, category.CategoryLikeCount));
                 }
                 this.categories = transformedMessages;
+                return transformedMessages;
+            })
+            .catch(
+                (error: Response) => {
+                    this.errorService.handleError(error.json());
+                    return Observable.throw(error.json())
+                }
+            )
+    }
+
+    getProducts(id:string) {
+        return this.http.get(this.serverUrl + '/category/'+id).map(
+            (response: Response) => {
+                const products = response.json().obj;
+                let transformedMessages: Product[] = [];
+                for (let product of products) {
+                    if ( product.ProductImageUrl=="") {
+                        product.ProductImageUrl="/images/noimage.png";
+                    };
+                   
+                    transformedMessages.push(product);
+                }
+                this.products = transformedMessages;
                 return transformedMessages;
             })
             .catch(

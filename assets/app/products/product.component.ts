@@ -1,11 +1,10 @@
 import {Component, Input} from "@angular/core";
-import { Category } from "./category.model";
+import { Product } from "./product.model";
 import { ProductService } from "./product.service";
-import { Router } from "@angular/router";
 
 @Component({
-selector : 'app-category',
-templateUrl: './category.component.html',
+selector : 'app-product',
+templateUrl: './product.component.html',
 styles: [`
 .ui.card {
     position: relative;
@@ -27,15 +26,16 @@ styles: [`
   
 `]
 })
-export class CategoryComponent {
-@Input() category : Category;
+export class ProductComponent {
+@Input() product : Product;
 color="red";
 
-constructor(private productService:ProductService, private _router:Router) {
+constructor(private productService:ProductService) {
 
 }
-navigateProducts(id) {
-    this._router.navigate(['/category', id]);
+onEdit() {
+    alert("tıklandı");
+    //this.productService.editMessage(this.category)
 }
 
 }

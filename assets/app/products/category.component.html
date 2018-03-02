@@ -2,11 +2,11 @@
  <div class="column">
     <div class="ui card">
         <div class="image">
-          <img src="{{category.CategoryImageUrl}}" width="300px" height="250px">
+          <img src="{{category.CategoryImageUrl}}" width="300px" height="250px" (click)="navigateProducts(category._id)">
         </div>
         <div class="content">
-          <a class="header"  (click)="onEdit()">  {{category.CategoryName}}</a>
-        
+          <a class="header"  (click)="navigateProducts(category._id)">  {{category.CategoryName}}</a>       
+
           <div class="description">
             {{category.CategoryDesc}}
           </div>

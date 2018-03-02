@@ -1,0 +1,24 @@
+
+ <div class="column">
+    <div class="ui card">
+        <div class="image">
+          <img src="{{product.ProductImageUrl}}" width="300px" height="250px">
+        </div>
+        <div class="content">
+          <a class="header"  (click)="onEdit()">  {{product.ProductName}}
+            <span class="right floated">          
+                {{product.ProductPrice}} {{product.ProductCurrencyCode}} 
+              </span>
+          </a>         
+          
+        </div>
+        <div class="content">
+            <span class="right floated">
+              <i class="heart outline like icon"></i>
+              {{product.ProductLikeCount}} likes
+            </span>
+            <i class="comment icon"></i>
+            {{product.ProductCommentCount}} comments
+          </div>       
+      </div>
+  </div>
