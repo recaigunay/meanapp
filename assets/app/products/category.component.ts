@@ -35,7 +35,7 @@ constructor(private productService:ProductService, private _router:Router) {
 
 }
 navigateProducts(id) {
-    this._router.navigate(['/category', id]);
+    this._router.navigate(['/categories', id]);
 }
 
 }

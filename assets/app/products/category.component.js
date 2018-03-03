@@ -8,7 +8,7 @@ var CategoryComponent = /** @class */ (function () {
         this._router = _router;
     }
     CategoryComponent.prototype.navigateProducts = function (id) {
-        this._router.navigate(['/category', id]);
+        this._router.navigate(['/categories', id]);
     };
     return CategoryComponent;
 }());

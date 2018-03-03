@@ -5,10 +5,10 @@ import { CategoryListComponent } from "./products/category-list.component";
 import { ProductListComponent } from "./products/product-list.component";
 
 const APP_ROUTES : Routes = [
-{ path : '', redirectTo:'/category', pathMatch:'full'},
+{ path : '', redirectTo:'/categories', pathMatch:'full'},
 { path : 'messages', component : MessagesComponent },
-{ path : 'category', component : CategoryListComponent },
-{ path : 'category/:id', component : ProductListComponent },
+{ path : 'categories', component : CategoryListComponent },
+{ path : 'categories/:id', component : ProductListComponent },
 { path : 'auth', component : AuthenticationComponent, loadChildren:'./auth/auth.module#AuthModule'}
 
 ];
