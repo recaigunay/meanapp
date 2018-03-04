@@ -29,7 +29,6 @@ styles: [`
 })
 export class CategoryComponent {
 @Input() category : Category;
-color="red";
 
 constructor(private productService:ProductService, private _router:Router) {
 

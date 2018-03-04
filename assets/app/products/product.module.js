@@ -6,6 +6,7 @@ import { CommonModule } from "@angular/common";
 import { ProductService } from "./product.service";
 import { ProductListComponent } from "./product-list.component";
 import { ProductComponent } from "./product.component";
+import { ProductDetailComponent } from "./product-detail.component";
 var ProductModule = /** @class */ (function () {
     function ProductModule() {
     }

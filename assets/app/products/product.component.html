@@ -2,10 +2,10 @@
  <div class="column">
     <div class="ui card">
         <div class="image">
-          <img src="{{product.ProductImageUrl}}" width="300px" height="250px">
+          <img src="{{product.ProductImageUrl}}" width="300px" height="250px" (click)="navigateProductDetail(product._id)">
         </div>
         <div class="content">
-          <a class="header"  (click)="onEdit()">  {{product.ProductName}}
+          <a class="header"  (click)="navigateProductDetail(product._id)">  {{product.ProductName}}
             <span class="right floated">          
                 {{product.ProductPrice}} {{product.ProductCurrencyCode}} 
               </span>

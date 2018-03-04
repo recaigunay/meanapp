@@ -61,6 +61,32 @@ var ProductService = /** @class */ (function () {
             return Observable.throw(error.json());
         });
     };
+    ProductService.prototype.getProductDetail = function (id) {
+        var _this = this;
+        var transformedMessages = [];
+        // if (this.products.length > 0) {
+        //     transformedMessages = this.products.filter(function (el) {
+        //         return (el._id === id);
+        //     });
+        //     return transformedMessages;
+        // } else {
+        return this.http.get(this.serverUrl + '/product/' + id).map(function (response) {
+            var product = response.json().obj;
+            if (product.ProductImageUrl == "") {
+                product.ProductImageUrl = "/images/noimage.png";
+            }
+            ;
+            if (product != null && product != undefined) {
+                transformedMessages.push(product);
+            }
+            return transformedMessages;
+        })
+            .catch(function (error) {
+            _this.errorService.handleError(error.json());
+            return Observable.throw(error.json());
+        });
+        //}
+    };
     return ProductService;
 }());
 export { ProductService };

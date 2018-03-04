@@ -6,6 +6,7 @@ import { CommonModule } from "@angular/common";
 import { ProductService } from "./product.service";
 import { ProductListComponent } from "./product-list.component";
 import { ProductComponent } from "./product.component";
+import { ProductDetailComponent } from "./product-detail.component";
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { ProductComponent } from "./product.component";
         CategoryComponent,
         CategoryListComponent,
         ProductListComponent,
+        ProductDetailComponent,
         ProductComponent      
     ],
     imports: [

@@ -8,14 +8,14 @@ import * as i0 from "@angular/core";
 import * as i1 from "./product.component.ngfactory";
 import * as i2 from "./product.component";
 import * as i3 from "./product.service";
-import * as i4 from "@angular/common";
-import * as i5 from "./product-list.component";
-import * as i6 from "@angular/router";
+import * as i4 from "@angular/router";
+import * as i5 from "@angular/common";
+import * as i6 from "./product-list.component";
 var styles_ProductListComponent = [];
 var RenderType_ProductListComponent = i0.ɵcrt({ encapsulation: 2, styles: styles_ProductListComponent, data: {} });
 export { RenderType_ProductListComponent as RenderType_ProductListComponent };
-function View_ProductListComponent_1(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 1, "app-product", [], null, null, null, i1.View_ProductComponent_0, i1.RenderType_ProductComponent)), i0.ɵdid(1, 49152, null, 0, i2.ProductComponent, [i3.ProductService], { product: [0, "product"] }, null)], function (_ck, _v) { var currVal_0 = _v.context.$implicit; _ck(_v, 1, 0, currVal_0); }, null); }
-export function View_ProductListComponent_0(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵted(-1, null, ["\n    "])), (_l()(), i0.ɵeld(1, 0, null, null, 4, "div", [["class", "ui three column grid"]], null, null, null, null, null)), (_l()(), i0.ɵted(-1, null, ["\n    "])), (_l()(), i0.ɵand(16777216, null, null, 1, null, View_ProductListComponent_1)), i0.ɵdid(4, 802816, null, 0, i4.NgForOf, [i0.ViewContainerRef, i0.TemplateRef, i0.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null), (_l()(), i0.ɵted(-1, null, ["\n    "])), (_l()(), i0.ɵted(-1, null, ["\n    "]))], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.products; _ck(_v, 4, 0, currVal_0); }, null); }
-export function View_ProductListComponent_Host_0(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 1, "app-product-list", [], null, null, null, View_ProductListComponent_0, RenderType_ProductListComponent)), i0.ɵdid(1, 245760, null, 0, i5.ProductListComponent, [i3.ProductService, i6.ActivatedRoute], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
-var ProductListComponentNgFactory = i0.ɵccf("app-product-list", i5.ProductListComponent, View_ProductListComponent_Host_0, {}, {}, []);
+function View_ProductListComponent_1(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 1, "app-product", [], null, null, null, i1.View_ProductComponent_0, i1.RenderType_ProductComponent)), i0.ɵdid(1, 49152, null, 0, i2.ProductComponent, [i3.ProductService, i4.Router], { product: [0, "product"] }, null)], function (_ck, _v) { var currVal_0 = _v.context.$implicit; _ck(_v, 1, 0, currVal_0); }, null); }
+export function View_ProductListComponent_0(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵted(-1, null, ["\n    "])), (_l()(), i0.ɵeld(1, 0, null, null, 4, "div", [["class", "ui three column grid"]], null, null, null, null, null)), (_l()(), i0.ɵted(-1, null, ["\n    "])), (_l()(), i0.ɵand(16777216, null, null, 1, null, View_ProductListComponent_1)), i0.ɵdid(4, 802816, null, 0, i5.NgForOf, [i0.ViewContainerRef, i0.TemplateRef, i0.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null), (_l()(), i0.ɵted(-1, null, ["\n    "])), (_l()(), i0.ɵted(-1, null, ["\n    "]))], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.products; _ck(_v, 4, 0, currVal_0); }, null); }
+export function View_ProductListComponent_Host_0(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 1, "app-product-list", [], null, null, null, View_ProductListComponent_0, RenderType_ProductListComponent)), i0.ɵdid(1, 245760, null, 0, i6.ProductListComponent, [i3.ProductService, i4.ActivatedRoute], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+var ProductListComponentNgFactory = i0.ɵccf("app-product-list", i6.ProductListComponent, View_ProductListComponent_Host_0, {}, {}, []);
 export { ProductListComponentNgFactory as ProductListComponentNgFactory };

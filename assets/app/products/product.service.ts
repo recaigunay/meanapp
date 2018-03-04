@@ -36,8 +36,8 @@ export class ProductService {
                 const categories = response.json().obj;
                 let transformedMessages: Category[] = [];
                 for (let category of categories) {
-                    if ( category.CategoryImageUrl=="") {
-                        category.CategoryImageUrl="/images/noimage.png";
+                    if (category.CategoryImageUrl == "") {
+                        category.CategoryImageUrl = "/images/noimage.png";
                     }
                     transformedMessages.push(new Category(category._id, category.CategoryCode, category.CategoryName, category.CategoryImageUrl, category.CategoryDesc, category.CategoryCommentCount, category.CategoryLikeCount));
                 }
@@ -52,16 +52,16 @@ export class ProductService {
             )
     }
 
-    getProducts(id:string) {
-        return this.http.get(this.serverUrl + '/category/'+id).map(
+    getProducts(id: string) {
+        return this.http.get(this.serverUrl + '/category/' + id).map(
             (response: Response) => {
                 const products = response.json().obj;
                 let transformedMessages: Product[] = [];
                 for (let product of products) {
-                    if ( product.ProductImageUrl=="") {
-                        product.ProductImageUrl="/images/noimage.png";
+                    if (product.ProductImageUrl == "") {
+                        product.ProductImageUrl = "/images/noimage.png";
                     };
-                   
+
                     transformedMessages.push(product);
                 }
                 this.products = transformedMessages;
@@ -73,6 +73,34 @@ export class ProductService {
                     return Observable.throw(error.json())
                 }
             )
+    }
+
+    getProductDetail(id: string) : Observable<any>  {
+        let transformedMessages: Product[] = [];
+        // if (this.products.length > 0) {
+        //     transformedMessages = this.products.filter(function (el) {
+        //         return (el._id === id);
+        //     });
+        //     return transformedMessages;
+        // } else {
+            return this.http.get(this.serverUrl + '/product/' + id).map(
+                (response: Response) => {
+                    const product = response.json().obj;
+                    if (product.ProductImageUrl == "") {
+                        product.ProductImageUrl = "/images/noimage.png";
+                    };
+                    if (product != null && product != undefined) {
+                        transformedMessages.push(product);
+                    }
+                    return transformedMessages;
+                })
+                .catch(
+                    (error: Response) => {
+                        this.errorService.handleError(error.json());
+                        return Observable.throw(error.json())
+                    }
+                )
+        //}
     }
 
 

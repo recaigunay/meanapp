@@ -1,6 +1,7 @@
 import {Component, Input} from "@angular/core";
 import { Product } from "./product.model";
 import { ProductService } from "./product.service";
+import { Router } from "@angular/router";
 
 @Component({
 selector : 'app-product',
@@ -30,12 +31,11 @@ export class ProductComponent {
 @Input() product : Product;
 color="red";
 
-constructor(private productService:ProductService) {
+constructor(private productService:ProductService,private _router:Router) {
 
 }
-onEdit() {
-    alert("tıklandı");
-    //this.productService.editMessage(this.category)
+navigateProductDetail(id) {
+    this._router.navigate(['/products', id]);
 }
 
 }
