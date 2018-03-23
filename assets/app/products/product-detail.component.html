@@ -1,78 +1,139 @@
-<div class="ui divided items">
-
-    <div class="item">
-        <div class="image">
-            <img src="{{product.ProductImageUrl}}" width="300px" height="250px">
-            <a class="ui pointing red basic bottom attached label"> {{product.ProductPrice}} {{product.ProductCurrencyCode}}</a>
-        </div>
-        <div class="content">
-            <a class="header"> {{product.ProductName}} </a>
-            <div class="meta">
-                <span class="cinema">{{product.ProductContent}}</span>
-            </div>
-            <br>
-            <div class="description">
-                <p></p>
-            </div>
-            <div class="extra">
-                <div *ngFor="let property of product.ProductProperties">
-                    <div class="ui label" *ngIf="(property.defaultValue == true)">
-                        <i class="check icon"></i>
-                        {{property.name}}
+<div class="ui grid">
+    <div class="row">
+        <div class="sixteen wide column">
+            <div class="ui items">
+                <div class="item">
+                    <div class="ui small image">
+                        <img src="{{product.ProductImageUrl}}">
                     </div>
-                </div>
-
-                <h4 class="ui horizontal divider header">
-                    <i class="bar chart icon"></i>
-                    Özellik Seçimi
-                </h4>
-                <div class="ui form">
-                    <div class="inline fields">
-                        <label>Çikolata Tipi</label>
-                        <div class="field">
-                            <div class="ui radio checkbox">
-                                <input type="radio" name="chocolateType" checked="checked">
-                                <label>Beyaz Çikolata</label>
-                            </div>
+                    <div class="content">
+                        <div class="header">{{product.ProductName}}</div>
+                        <div class="description">
+                            <p>
+                                {{product.ProductContent}}
+                            </p>
                         </div>
-                        <div class="field">
-                            <div class="ui radio checkbox">
-                                <input type="radio" name="chocolateType">
-                                <label>Bitter Çikolata</label>
+                        <div class="extra">
+                            <div class="ui left labeled right floated button" tabindex="0">
+                                <a class="ui basic red right pointing label">
+                                    {{product.ProductPrice}} {{product.ProductCurrencyCode}}
+                                </a>
+                                <div class="ui green button">
+                                    <i class="shopping cart icon"></i> Add Basket
+                                </div>
                             </div>
+
+                            <div *ngFor="let property of product.ProductProperties">
+                                <div class="ui label" *ngIf="(property.defaultValue == true)">
+                                    <i class="check icon"></i>
+                                    {{property.name}}
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                    <div class="inline fields">
-                        <label>Boyut</label>
-                        <div class="field">
-                            <div class="ui radio checkbox">
-                                <input type="radio" name="size" checked="checked">
-                                <label>Küçük Boy</label>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="ui radio checkbox">
-                                <input type="radio" name="size">
-                                <label>Orta Boy</label>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="ui radio checkbox">
-                                <input type="radio" name="size">
-                                <label>Büyük Boy</label>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-
-                <div class="ui right floated button">
-                    <i class="shopping cart icon"></i>Sepete Ekle
                 </div>
             </div>
         </div>
 
     </div>
+    <div class="row">
+        <div class="sixteen wide column">
+            <div class="ui segments">
+                <div class="ui horizontal segments">
+                    <div class="ui segment">
+                        <h6 class="ui header">Chocolate Type</h6>
+                        <div>
+                            <label>
+                                <input type="radio" class="option-input radio" name="example1" checked /> White Chocolate
+                            </label>
+                            <label>
+                                <input type="radio" class="option-input radio" name="example1" /> Dark Chocolate
+                            </label>
+                        </div>
 
+                    </div>
+                    <div class="ui segment">
+                        <h6 class="ui header">Size</h6>
+                        <div>
+                            <label>
+                                <input type="radio" class="option-input radio" name="example2" /> Small Size
+                            </label>
+                            <label>
+                                <input type="radio" class="option-input radio" name="example2" checked/> Medium Size
+                            </label>
+                            <label>
+                                <input type="radio" class="option-input radio" name="example2" /> Big Size
+                            </label>
+                        </div>
 
+                    </div>
+                    <div class="ui segment">
+                        <h6 class="ui header">Cream</h6>
+                        <div>
+                            <label>
+                                <input type="radio" class="option-input radio" name="example3" checked /> With Cream
+                            </label>
+                            <label>
+                                <input type="radio" class="option-input radio" name="example3" /> Without Cream
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui segment">
+                <h6 class="ui header">Comments</h6>
+
+                <div class="ui comments">
+                    <form class="ui reply form">
+                        <div class="field">
+                            <textarea></textarea>
+                        </div>
+                        <div class="ui submit labeled icon button">
+                            <i class="icon edit"></i> Add Comment
+                        </div>
+                    </form>
+
+                    <div class="comment">
+                        <a class="avatar">
+                            <i class="user icon"></i>
+                        </a>
+                        <div class="content">
+                            <a class="author">Developer Kazım</a>
+                            <div class="metadata">
+                                <div class="date">1 day ago</div>
+                            </div>
+                            <div class="text">
+                                <p>This design is very horrible, please re-design.</p>
+                            </div>
+                            <div class="actions">
+                                <a class="reply">Reply</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <a class="avatar">
+                            <i class="user icon"></i>
+                        </a>
+                        <div class="content">
+                            <a class="author">Gardrop Fuat</a>
+                            <div class="metadata">
+                                <div class="date">2 days ago</div>
+                            </div>
+                            <div class="text">
+                                <p> keep in touch you :) 
+                            </div>
+                            <div class="actions">
+                                <a class="reply">Reply</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="three wide column">
+
+        </div>
+    </div>
 </div>
